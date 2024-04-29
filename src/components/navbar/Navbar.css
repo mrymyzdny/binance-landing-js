@@ -1,0 +1,134 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 24px;
+  margin-bottom: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg);
+  color: var(--font-color);
+}
+.nav-leftside {
+  display: flex;
+  align-items: center;
+}
+.nav-logo {
+  height: 24px;
+  width: auto;
+  align-items: center;
+}
+.nav-logo * {
+  height: 100%;
+}
+.nav-menu {
+  display: flex;
+}
+.nav-items {
+  align-items: center;
+
+}
+.nav-links {
+  color: var(--font-color);
+  text-decoration: none;
+  display: flex;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 15px;
+
+}
+.nav-dropdown-list {
+  background-color: var(--secondary-bg-gray);
+}
+.nav-dropdown-item {
+  padding: 10px;
+}
+.header-menu-item_dropdown-icon {
+  width: 20px;
+  height: 20px;
+}
+.nav-dropdown-link {
+  color: var(--font-color);
+  text-decoration: none;
+  margin: 20px;
+}
+.nav-icon {
+  font-size: 24px;
+  width: 20px;
+  height: 20px;
+}
+.nav-links:hover {
+  color: var(--color-primary);
+  transition: color 0.5s ease;
+}
+.signup-nav-btn {
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border-radius: 10px;
+  color: var(--color-bg);
+}
+.signup-nav-btn:hover {
+  color: var(--color-bg);
+}
+.nav-links:last-child {
+  height: 20px;
+}
+.nav-rightside {
+  display: flex;
+  align-items: center;
+}
+
+/* Search Dropdown */
+.search-box {
+  position: absolute;
+  top: 70px;
+  right: 250px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--secondary-bg-gray);
+}
+.search-box input {
+  width: 250px;
+  border: 1px solid var(--light-gray);
+  margin: 10px;
+}
+.search-box p {
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.app-download {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  background-color: var(--secondary-bg-gray);
+  font-size: 14px;
+}
+/* Download Dropdown */
+.app-qr-code {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+}
+.app-download-dropdown-btn {
+  background-color: var(--color-primary);
+  color: var(--font-color);
+  padding: 10px;
+  font-size: 12px;
+
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+}

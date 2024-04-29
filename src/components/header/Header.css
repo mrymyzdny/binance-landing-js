@@ -1,0 +1,105 @@
+.header {
+  padding-top: 150px ;
+  margin: 0 auto;
+  color: var(--font-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-leftside {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.header-leftside span {
+  display: flex;
+  font-weight: bold;
+  font-size: 85px;
+  max-width: 480px;
+}
+.users-count {
+  color: var(--color-primary);
+  width: 100%;
+}
+.signup-input-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  max-width: 480px;
+}
+.signup-input,
+.signup-btn {
+  font-family: "IBM";
+  margin: 30px 12px 20px 0;
+  border-radius: 10px;
+}
+.signup-input {
+  padding: 18px;
+  background-color: var(--color-bg);
+  outline: none;
+  border: 1px solid var(--secondary-bg-gray);
+}
+.signup-btn {
+  padding: 18px 40px;
+  width: 200px;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+.signup-text {
+  font-size: 14px;
+}
+.header-rightside {
+  max-width: 480px;
+}
+.cart-items {
+  color: var(--text-gray);
+  padding: 30px;
+  margin: 0 0 30px 0;
+  background-color: var(--secondary-bg-gray);
+  border-radius: 20px;
+}
+.news {
+  display: flex;
+  flex-direction: column;
+}
+.news-title {
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+.news-link {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--light-gray);
+  text-decoration: none;
+}
+.news-link :hover {
+  color: #ffff;
+}
+.social-media {
+  display: flex;
+}
+.social-media div {
+  margin: 130px 50px 0 0;
+}
+.social-media-title {
+  color: var(--light-gray);
+  font-size: 14px;
+}
+.social-media-icon {
+  width: 48px;
+  height: 48px;
+  padding: 11px;
+  border: 1px solid var(--secondary-bg-gray);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.apple-icon {
+  color: #ffff;
+  margin-left: 15px;
+}
+.qr-icon {
+  color: #ffff;
+}

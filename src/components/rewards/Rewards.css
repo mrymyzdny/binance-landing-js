@@ -1,0 +1,18 @@
+.rewards-section{
+    text-align: center;
+    color: var(--font-color);
+    padding: 80px 0;
+    margin-top: 80px;
+    background-color: var(--secondary-bg-gray);
+    font-weight: bold;
+}
+.first-line {
+    font-size: 32px;
+}
+.second-line {
+    font-size: 40px;
+    margin: 20px 0 60px 0;
+}
+.second-line span {
+    color: var(--color-primary);
+}

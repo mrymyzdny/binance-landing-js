@@ -1,0 +1,45 @@
+/* 
+
+  Responsive.css
+
+*/
+
+
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 576px) {
+  
+}
+
+@media screen and (max-width: 410px) {
+  
+}
+@media screen and (max-width: 320px) {
+  
+}
+
+
+/*        */
+
+@media screen and (min-width: 1050px) {
+
+
+}
+@media only screen and (min-width: 768px) and (max-width: 1050px) {
+  
+}
+@media screen and (max-width: 768px) {
+}
