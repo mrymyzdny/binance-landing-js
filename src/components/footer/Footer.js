@@ -165,7 +165,6 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-
       <div className="footer-list">
         <p className="footer-list-title">{footerLists[2].title}</p>
         {footerLists[2].items.map((item) => (
@@ -174,7 +173,6 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-
       <div className="footer-list">
         <div>
           <p className="footer-list-title">{footerLists[3].title}</p>
@@ -191,7 +189,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
       <div className="footer-list">
         <div>
           <p className="footer-list-title">{footerLists[5].title}</p>

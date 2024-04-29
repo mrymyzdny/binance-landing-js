@@ -1,6 +1,4 @@
-.light, body {
-    background-color: var(--color-bg);
-  }
-  .light, body {
-    background-color: var(--color-bg);
-  }
+.light,
+body {
+  background-color: var(--color-bg);
+}

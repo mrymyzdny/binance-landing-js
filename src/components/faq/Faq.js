@@ -49,14 +49,14 @@ export default function Faq() {
     },
   ]);
 
-  function toggleQuestion(item, itemId) {
+  const toggleQuestion = (item, itemId) => {
     if (item.id === itemId) {
       item.isOpen = !item.isOpen;
       setDatas((prevState) => [...prevState]);
     } else {
       item.isOpen = false;
     }
-  }
+  };
 
   return (
     <div className="faq-section container">

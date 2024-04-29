@@ -7,14 +7,9 @@ import { FaQrcode } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-const coinsAPI = fetch('<https://api.example.com/data>')
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
-
   return (
     <div>
-      <div className="header  container">
+      <div className="header container">
         <div className="header-leftside ">
           <span className="users-count">187,709,392</span>
           <span>USERS TRUST US</span>
@@ -48,18 +43,8 @@ const coinsAPI = fetch('<https://api.example.com/data>')
             </div>
           </div>
         </div>
-
-        <div className="header-rightside col-12 col-xxl-6 col-xl-6">
+        <div className="header-rightside">
           <div className="cart-items">
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <div></div>
             <Link className="news-link" to="/news">
               <span>View All 350+ Coins</span>
               <IoIosArrowForward />

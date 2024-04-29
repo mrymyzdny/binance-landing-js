@@ -28,29 +28,30 @@ export default function Login() {
       isValid = false;
       validationError.email = "Email is Required ";
     }
-    if (formData.password === "" ) {
+    if (formData.password === "") {
       isValid = false;
       validationError.password = "Password is Required ";
     } else if (formData.password.length < 6) {
       isValid = false;
       validationError.password = "Password length is less than 6 characters";
     }
-    
+
     setErrors(validationError);
     setValid(isValid);
 
     axios
       .get("http://localhost:8000/users")
       .then((res) => {
-        console.log(res.data);
         res.data.map((user) => {
-          if (user.email === formData.email && user.password === formData.password) {
-            navigate('/#')
+          if (
+            user.email === formData.email &&
+            user.password === formData.password
+          ) {
+            navigate("/#");
           } else {
-            alert('l')
+            // console.log('cant login')
           }
         });
-
       })
       .catch((err) => console.log(err));
   };
@@ -68,12 +69,17 @@ export default function Login() {
               <FaQrcode className="form-qrcode-icon" />
             </div>
           </div>
-          {valid ? "" : <p className="input-error">{errors.name}</p>}
           <form onSubmit={(e) => submitHandler(e)}>
             <label>Email</label>
-            <input type="text" onChange={(e) => setFormData({ ...formData, email: e.target.value })}></input>
+            <input
+              type="text"
+              onChange={(e) => setFormData({ email: e.target.value })}
+            ></input>
             <label>password</label>
-            <input type="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })}></input>
+            <input
+              type="password"
+              onChange={(e) => setFormData({ password: e.target.value })}
+            ></input>
             <button className="btn next-btn">Next</button>
           </form>
           <div className="css-xpcra5">

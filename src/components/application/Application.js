@@ -7,7 +7,7 @@ import { FaWindows } from "react-icons/fa";
 import { HiOutlineArrowDownTray } from "react-icons/hi2";
 
 export default function Application() {
-  const darktTabs = [
+  const slides = [
     {
       id: 1,
       name: "Desktop",
@@ -30,27 +30,29 @@ export default function Application() {
       lang: "en",
     },
   ];
-  const [activeTab, setActiveTab] = useState(darktTabs[0].id);
+  const [activeTab, setActiveTab] = useState(slides[0].id);
 
-  function changeTab(tabId) {
+  const changeTab = (tabId) => {
     setActiveTab(tabId);
   }
 
   return (
     <div className="application-section container">
       <div className="application-leftside">
+        {/* slider */}
         <div>
-          {darktTabs.map(
-            (item) =>
-              item.id === activeTab && (
+          {slides.map(
+            (slide) =>
+              slide.id === activeTab && (
                 <img
-                  src={item.src}
-                  className={item.name === "Desktop" && "desktop-slide"}
+                  alt="img"
+                  src={slide.src}
+                  className={slide.name === "Desktop" && "desktop-slide"}
                 ></img>
               )
           )}
           <div className="slider-tabs">
-            {darktTabs.map((tab) => (
+            {slides.map((tab) => (
               <p
                 key={tab.id}
                 className={`slider-tab ${tab.active && "active-tab"} ${
@@ -111,16 +113,3 @@ export default function Application() {
     </div>
   );
 }
-
-// tab.active ? (
-//   <p
-//     className="slider-tab active-tab"
-//     onClick={() => changeTab(tab.id)}
-//   >
-//     {tab.name}
-//   </p>
-// ) : (
-//   <p className="slider-tab" onClick={() => changeTab(tab)}>
-//     {tab.name}
-//   </p>
-// )
