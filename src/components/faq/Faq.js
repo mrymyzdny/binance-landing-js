@@ -62,14 +62,13 @@ export default function Faq() {
     <div className="faq-section container">
       <p className="faq-title">Frequently Asked Questions</p>
       {datas.map((item) => (
-        <div className="row">
-          <div className="faq-wrapper col-12" key={item.id}>
+          <div className="faq-wrapper" key={item.id}>
             <div
               className={item.isOpen ? "faq-item faq-item-hovered" : "faq-item"}
             >
               <div>
                 <span className="faq-num">{item.id}</span>
-                <span>{item.question}</span>
+                <span className="faq-question">{item.question}</span>
               </div>
               {!item.isOpen ? (
                 <LuPlus onClick={() => toggleQuestion(item, item.id)} />
@@ -93,7 +92,6 @@ export default function Faq() {
               )}
             </div>
           </div>
-        </div>
       ))}
     </div>
   );

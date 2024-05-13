@@ -30,14 +30,14 @@ export default function Application() {
       lang: "en",
     },
   ];
-  const [activeTab, setActiveTab] = useState(slides[0].id);
+  const [activeTab, setActiveTab] = useState(slides[1].id);
 
   const changeTab = (tabId) => {
     setActiveTab(tabId);
   }
 
   return (
-    <div className="application-section container">
+    <div className="application container">
       <div className="application-leftside">
         {/* slider */}
         <div>

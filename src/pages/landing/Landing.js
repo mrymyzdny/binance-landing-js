@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 import "./Landing.css";
 import NavBar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
@@ -9,13 +9,13 @@ import Footer from "../../components/footer/Footer";
 
 export default function Landing() {
   return (
-    <div>
-      <NavBar />
-      <Header />
-      <Application />
-      <Faq />
-      <Rewards />
-      <Footer />
-    </div>
+      <div>
+        <NavBar />
+        <Header />
+        <Application />
+        <Faq />
+        <Rewards />
+        <Footer />
+      </div>
   );
 }

@@ -6,56 +6,40 @@ import { FaQrcode } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { MdLanguage } from "react-icons/md";
-import axios from "axios";
+import Input from "../../components/form/Input";
+import {
+  requiredValidator,
+  minValidator,
+  maxValidator,
+  emailValidator,
+} from "../../validators/rules";
+import { useForm } from "../../hooks/useForm";
 
 export default function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [errors, setErrors] = useState({});
-  const [valid, setValid] = useState(true);
-  const navigate = useNavigate();
-
+  const [allUsers, setAllUsers] = useState(null)
+  let navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
-    let isValid = true;
-    let validationError = {};
+    navigate("/dashboard");
 
-    if (formData.email === "") {
-      isValid = false;
-      validationError.email = "Email is Required ";
-    }
-    if (formData.password === "") {
-      isValid = false;
-      validationError.password = "Password is Required ";
-    } else if (formData.password.length < 6) {
-      isValid = false;
-      validationError.password = "Password length is less than 6 characters";
-    }
-
-    setErrors(validationError);
-    setValid(isValid);
-
-    axios
-      .get("http://localhost:8000/users")
-      .then((res) => {
-        res.data.map((user) => {
-          if (
-            user.email === formData.email &&
-            user.password === formData.password
-          ) {
-            navigate("/#");
-          } else {
-            // console.log('cant login')
-          }
-        });
-      })
-      .catch((err) => console.log(err));
+    fetch("http://localhost:8001/users")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
+  const [formState, onInputHandler] = useForm(
+    {
+      email: {
+        value: "",
+        isValid: false,
+      },
+      password: {
+        value: "",
+        isValid: false,
+      },
+    },
+    false
+  );
   return (
     <div className="form-section">
       <div className="form-cart">
@@ -71,16 +55,26 @@ export default function Login() {
           </div>
           <form onSubmit={(e) => submitHandler(e)}>
             <label>Email</label>
-            <input
+            <Input
               type="text"
-              onChange={(e) => setFormData({ email: e.target.value })}
-            ></input>
+              id="email"
+              validations={[requiredValidator(), emailValidator()]}
+              onInputHandler={onInputHandler}
+            ></Input>
             <label>password</label>
-            <input
+            <Input
               type="password"
-              onChange={(e) => setFormData({ password: e.target.value })}
-            ></input>
-            <button className="btn next-btn">Next</button>
+              id="password"
+              validations={[
+                requiredValidator(),
+                minValidator(6),
+                maxValidator(16),
+              ]}
+              onInputHandler={onInputHandler}
+            ></Input>
+            <button className="btn next-btn" disabled={!formState.isFormValid} onClick={submitHandler}>
+              Next
+            </button>
           </form>
           <div className="css-xpcra5">
             <div className="css-3piyph"></div>

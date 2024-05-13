@@ -1,18 +1,19 @@
 .form-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
 }
 .form-cart {
-    margin: 100px auto 25px auto;
-    max-width: 425px;
-    width: 100%;
-    min-height: 580px;
-    padding: 40px;
-    border: 1px solid var(--secondary-bg-gray);
-    border-radius: 30px;
-    color: var(--font-color);
+  margin: 100px auto 25px auto;
+  max-width: 425px;
+  width: 100%;
+  min-height: 580px;
+  padding: 40px;
+  border: 1px solid var(--secondary-bg-gray);
+  border-radius: 30px;
+  color: var(--font-color);
 }
 .app-logo {
   width: 140px;
@@ -27,17 +28,17 @@
   font-size: 32px;
 }
 .form-qrcode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 6px;
   border: 1px solid var(--secondary-bg-gray);
   border-radius: 5px;
   background-color: var(--secondary-bg-gray);
 }
 .form-qrcode-icon {
-    width: 23px;
-    height: 23px;
+  width: 23px;
+  height: 23px;
 }
 label {
   font-size: 14px;
@@ -51,61 +52,78 @@ input {
   border: 1px solid var(--secondary-bg-gray);
   color: #ffff;
   border-radius: 10px;
-  outline-color: transparent;
+  outline: none;
 }
+.input-error {
+    font-size: 12px;
+    color: rgb(189, 43, 43);
+    margin-bottom: 3px;
+  }
 .next-btn {
-    margin: 30px 0;
-    background-color: var(--color-primary);
+  margin: 30px 0;
+}
+.next-btn-success {
+  background-color: var(--color-primary);
+}
+.next-btn-error {
+background-color: rgb(108, 108, 108);
 }
 .acount-btn {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .signup-link {
-    text-decoration: none;
-    color: var(--color-primary);
-    font-size: 15px; 
+  text-decoration: none;
+  color: var(--color-primary);
+  font-size: 15px;
 }
 .form-footer {
-    text-align: center;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-bg);
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-bg);
 }
 .form-footer-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}.form-footer-list :first-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-footer-list :first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form-footer-item {
-    padding: 20px;
-    color: var(--light-gray);
-    font-size: 14px;
+  padding: 20px;
+  color: var(--light-gray);
+  font-size: 14px;
 }
 .css-n6cikb {
-    box-sizing: border-box;
-    margin: 0px 16px;
-    min-width: 0px;
-    font-size: 14px;
+  box-sizing: border-box;
+  margin: 0px 16px;
+  min-width: 0px;
+  font-size: 14px;
 }
 .css-xpcra5 {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
 }
 .css-3piyph {
-    box-sizing: border-box;
-    margin: 0px;
-    min-width: 0px;
-    height: 1px;
-    flex: 1 1 0%;
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  height: 1px;
+  flex: 1 1 0%;
+}
+.success {
+  border-color: rgb(60, 99, 1) !important;
+}
+.error {
+  border-color: rgb(97, 0, 0) !important;
 }

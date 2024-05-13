@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { FaDiscord } from "react-icons/fa";
@@ -17,6 +17,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 
 export default function Footer() {
+  const [theme , setTheme] = useState('dark')
   const [footerLists, setFooterList] = useState([
     {
       id: 1,
@@ -130,8 +131,10 @@ export default function Footer() {
       ],
     },
   ]);
+
+
   return (
-    <div className="container footer">
+    <div className="footer container">
       <div className="footer-list">
         <p className="footer-list-title">{footerLists[0].title}</p>
         <div className="community-list">
@@ -152,8 +155,7 @@ export default function Footer() {
           </div>
           <div className="app-options-theme">
             <span>Theme</span>
-            <MdOutlineLightMode />
-            {/* === "dark" ? <MdOutlineLightMode /> : <MdOutlineDarkMode />*/}
+            {theme === "dark" ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
           </div>
         </div>
       </div>

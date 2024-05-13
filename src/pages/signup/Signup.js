@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AppLogo } from "../../components/icons";
@@ -7,52 +7,54 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { MdLanguage } from "react-icons/md";
 import { TbTarget } from "react-icons/tb";
-import axios from "axios";
+import Input from "../../components/form/Input";
+import {
+  requiredValidator,
+  minValidator,
+  maxValidator,
+  emailValidator,
+} from "../../validators/rules";
+import { useForm } from "../../hooks/useForm";
 
 export default function Signup() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  let navigate = useNavigate();
 
-  const [errors, setErrors] = useState({});
-  const [valid, setValid] = useState(true);
-  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
-    let isValid = true;
-    let validationError = {};
-    if (formData.name === "") {
-      isValid = false;
-      validationError.name = "Name is Required ";
-    }
-    if (formData.email === "") {
-      isValid = false;
-      validationError.email = "Email is Required ";
-    }
-    if (formData.password === "") {
-      isValid = false;
-      validationError.password = "Password is Required ";
-    } else if (formData.password.length < 6) {
-      isValid = false;
-      validationError.password = "Password length is less than 6 characters";
-    }
 
-    setErrors(validationError);
-    setValid(isValid);
+    const newUserInfo = {
+      name: formState.inputs.name.value,
+      email: formState.inputs.email.value,
+      password: formState.inputs.password.value,
+    };
 
-    if (Object.keys(validationError).length === 0) {
-      axios
-        .post("http://localhost:8000/users", formData)
-        .then((res) => {
-          alert("Success!");
-          navigate("/login");
-        })
-        .catch((err) => console.log(err));
-    }
+    fetch(`http://localhost:8001/users`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUserInfo),
+    }).then((res) => console.log(res));
+
+    navigate("/login");
   };
+
+  const [formState, onInputHandler] = useForm(
+    {
+      name: {
+        value: "",
+        isValid: false,
+      },
+      email: {
+        value: "",
+        isValid: false,
+      },
+      password: {
+        value: "",
+        isValid: false,
+      },
+    },
+    false
+  );
+
   return (
     <div className="form-section">
       <div className="form-cart">
@@ -65,31 +67,45 @@ export default function Signup() {
               <p className="form-title">Welcome to Binance</p>
             </div>
             <label>Name</label>
-            <input
+            <Input
               type="text"
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-            ></input>
+              id="name"
+              validations={[
+                requiredValidator(),
+                minValidator(4),
+                maxValidator(20),
+              ]}
+              onInputHandler={onInputHandler}
+            ></Input>
             <label>Email</label>
-            <input
+            <Input
               type="text"
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            ></input>
+              id="email"
+              validations={[requiredValidator(), emailValidator()]}
+              onInputHandler={onInputHandler}
+            ></Input>
             <label>Password</label>
-            <input
+            <Input
               type="password"
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-            ></input>
+              id="password"
+              validations={[
+                requiredValidator(),
+                minValidator(6),
+                maxValidator(16),
+              ]}
+              onInputHandler={onInputHandler}
+            ></Input>
             <p className="agreement-text">
               By creating an account, I agree to Binance's Terms of Service and
               Privacy Policy.
             </p>
-            <button className="btn next-btn">Next</button>
+            <button
+              className="btn next-btn"
+              onClick={submitHandler}
+              disabled={!formState.isFormValid}
+            >
+              Next
+            </button>
           </form>
           <div className="css-xpcra5">
             <div className="css-3piyph"></div>

@@ -33,6 +33,9 @@
   margin-right: 20px;
   font-size: 16px;
 }
+.faq-question {
+  width: 100%;
+}
 .faq-answer {
   background-color: var(--secondary-bg-gray);
   border-radius: 0 0 15px 15px;

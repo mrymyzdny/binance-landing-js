@@ -14,6 +14,10 @@
 
 @media screen and (max-width: 992px) {
 
+/* .nav-rightside  {
+  display: none;
+} */
+
 }
 
 @media screen and (max-width: 768px) {
@@ -35,11 +39,87 @@
 /*        */
 
 @media screen and (min-width: 1050px) {
+  .nav-menu {
+    display: flex;
+  }
 
+  .nav-rightside {
+    display: flex;
+  }
+  .nav-icon {
+    display: block;
+  }
 
 }
-@media only screen and (min-width: 768px) and (max-width: 1050px) {
-  
+/* @media only screen and (min-width: 768px) and (max-width: 1050px) {
+
+  .menu-icon {
+    display: block;
+  }
+
+} */
+@media screen and (max-width: 1050px) {
+  .header {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .application {
+    flex-direction: column;
+    gap: 100px;
+    margin-top: auto;
+  }
+  .footer {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+
 }
 @media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .header {
+    width: 100%;
+  }
+  .header-leftside {
+    margin: 0;
+  }
+  .header .header-leftside span {
+    font-size: 40px;
+
+  }
+  .signup-input-wrapper {
+    display: flex;
+  }
+  .signup-input {
+  }
+  .signup-btn {
+    padding: 18px 20px;
+    font-size: 10px;
+  }
+  .header-rightside {
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .application-title {
+    font-size: 20px;
+  }
+  .application-scan-wrapper {
+    flex-direction: column;
+  }
+  .application-links  {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .application-link {
+    margin: 10px auto;
+  }
+  .faq-question {
+    font-size: 15px;
+  }
 }
+

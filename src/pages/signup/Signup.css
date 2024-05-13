@@ -44,11 +44,12 @@ input {
   margin-bottom: 10px;
 
   border-radius: 10px;
-  outline-color: transparent;
+  outline: none;
 }
 .input-error {
   font-size: 12px;
   color: rgb(189, 43, 43);
+  margin-bottom: 3px;
 }
 .next-btn {
   margin: 30px 0;
