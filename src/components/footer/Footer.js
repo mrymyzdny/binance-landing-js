@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { FaDiscord } from "react-icons/fa";
@@ -15,9 +15,12 @@ import { MdLanguage } from "react-icons/md";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
+import { useTheme , useThemeUpdate} from '../../context/ThemeContext'
 
 export default function Footer() {
-  const [theme , setTheme] = useState('dark')
+  const darkTheme = useTheme()
+  const toggleTheme = useThemeUpdate()
+
   const [footerLists, setFooterList] = useState([
     {
       id: 1,
@@ -132,7 +135,6 @@ export default function Footer() {
     },
   ]);
 
-
   return (
     <div className="footer container">
       <div className="footer-list">
@@ -153,9 +155,9 @@ export default function Footer() {
             <AiFillDollarCircle />
             <span>USD_$</span>
           </div>
-          <div className="app-options-theme">
+          <div className="app-options-theme" onClick={toggleTheme}>
             <span>Theme</span>
-            {theme === "dark" ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
+            {darkTheme ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
           </div>
         </div>
       </div>

@@ -1,17 +1,18 @@
 import "./App.css";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";
-import UserContext from "./context/userContext";
-import { useState } from "react";
+import ThemeContextProvider from "./context/ThemeContext";
+import ThemeUpdateContext from "./context/ThemeContext";
 
 function App() {
-
-  const [isLoggedIn , setIsLoggedIn] = useState(false);
-  const [userInfo , setUserInfo] = useState(false);
   let router = useRoutes(routes);
 
-  return <UserContext.Provider value={
-    {isLoggedIn ,userInfo , login: () => {}}
-  }>{router}</UserContext.Provider>;
+  return (
+    <ThemeContextProvider>
+      <ThemeUpdateContext>
+        <div>{router}</div>
+      </ThemeUpdateContext>
+    </ThemeContextProvider>
+  );
 }
 export default App;

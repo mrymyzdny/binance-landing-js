@@ -6,10 +6,12 @@ import Application from "../../components/application/Application";
 import Faq from "../../components/faq/Faq";
 import Rewards from "../../components/rewards/Rewards";
 import Footer from "../../components/footer/Footer";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Landing() {
+  const isDarkTheme = useTheme()
   return (
-      <div>
+      <div className={isDarkTheme ? "dark" : "light"}>
         <NavBar />
         <Header />
         <Application />
