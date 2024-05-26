@@ -53,6 +53,12 @@
       "name": "name1",
       "email": "name@gmail.com",
       "password": "PASWORD"
+    },
+    {
+      "id": "d922",
+      "name": "name",
+      "email": "jsj@gmail.com",
+      "password": "passwird"
     }
   ]
 }

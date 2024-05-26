@@ -28,7 +28,7 @@ export default function Signup() {
       password: formState.inputs.password.value,
     };
 
-    fetch(`http://localhost:8001/users`, {
+    fetch(`http://localhost:8000/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUserInfo),

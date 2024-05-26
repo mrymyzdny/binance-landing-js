@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AppLogo } from "../../components/icons";
@@ -16,13 +16,13 @@ import {
 import { useForm } from "../../hooks/useForm";
 
 export default function Login() {
-  const [allUsers, setAllUsers] = useState(null)
+  const [allUsers, setAllUsers] = useState(null);
   let navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
     navigate("/dashboard");
 
-    fetch("http://localhost:8001/users")
+    fetch("http://localhost:8000/users")
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
@@ -72,7 +72,11 @@ export default function Login() {
               ]}
               onInputHandler={onInputHandler}
             ></Input>
-            <button className="btn next-btn" disabled={!formState.isFormValid} onClick={submitHandler}>
+            <button
+              className="btn next-btn"
+              disabled={!formState.isFormValid}
+              onClick={submitHandler}
+            >
               Next
             </button>
           </form>

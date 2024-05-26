@@ -62,36 +62,40 @@ export default function Faq() {
     <div className="faq-section container">
       <p className="faq-title">Frequently Asked Questions</p>
       {datas.map((item) => (
-          <div className="faq-wrapper" key={item.id}>
-            <div
-              className={item.isOpen ? "faq-item faq-item-hovered" : "faq-item"}
-            >
-              <div>
-                <span className="faq-num">{item.id}</span>
-                <span className="faq-question">{item.question}</span>
-              </div>
-              {!item.isOpen ? (
-                <LuPlus onClick={() => toggleQuestion(item, item.id)} />
-              ) : (
-                <FiMinus onClick={() => toggleQuestion(item, item.id)} />
-              )}
-            </div>
+        <div
+          className="faq-wrapper"
+          key={item.id}
+          onClick={() => toggleQuestion(item, item.id)}
+        >
+          <div
+            className={item.isOpen ? "faq-item faq-item-hovered" : "faq-item"}
+          >
             <div>
-              {item.isOpen ? (
-                <p
-                  className={
-                    item.isOpen
-                      ? "faq-answer open faq-item-hovered"
-                      : "faq-answer"
-                  }
-                >
-                  {item.answer}
-                </p>
-              ) : (
-                ""
-              )}
+              <span className="faq-num">{item.id}</span>
+              <span className="faq-question">{item.question}</span>
             </div>
+            {!item.isOpen ? (
+              <LuPlus onClick={() => toggleQuestion(item, item.id)} />
+            ) : (
+              <FiMinus onClick={() => toggleQuestion(item, item.id)} />
+            )}
           </div>
+          <div>
+            {item.isOpen ? (
+              <p
+                className={
+                  item.isOpen
+                    ? "faq-answer open faq-item-hovered"
+                    : "faq-answer"
+                }
+              >
+                {item.answer}
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
       ))}
     </div>
   );

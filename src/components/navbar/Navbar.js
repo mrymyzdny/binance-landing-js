@@ -9,8 +9,8 @@ import { DropdownIcon } from "../icons";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 
-export default function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [seledtedPageDropdown, setSeledtedPageDropdown] = useState(null);
   const [selectedSearchDropdown, setSelectedSearchDropdown] = useState(false);
   const [selectedAppdownloadDropdown, setSelectedAppdownloadDropdown] =
@@ -85,19 +85,25 @@ export default function NavBar() {
     },
   ]);
 
-  const pagesDropdownHandler = (item) => {
+  const openPagesDropdown = (item) => {
     if (item.submenu) {
       setSeledtedPageDropdown(item);
     }
   };
-  const closePagesDropdownHandler = () => {
+  const closePagesDropdown = () => {
     setSeledtedPageDropdown(null);
   };
-  const searchDropdown = () => {
+  const openSearchDropdown = () => {
     setSelectedSearchDropdown(!selectedSearchDropdown);
   };
-  const appDownloadDropdown = () => {
+  const closeSearchDropdown = () => {
+    setSelectedSearchDropdown(null);
+  };
+  const openAppDownloadDropdown = () => {
     setSelectedAppdownloadDropdown(!selectedAppdownloadDropdown);
+  };
+  const closeAppdownloadDropdown = () => {
+    setSelectedAppdownloadDropdown(null);
   };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -115,8 +121,8 @@ export default function NavBar() {
             <li
               className="nav-items"
               key={item.id}
-              onMouseEnter={() => pagesDropdownHandler(item)}
-              onMouseLeave={closePagesDropdownHandler}
+              onMouseEnter={() => openPagesDropdown(item)}
+              onMouseLeave={closePagesDropdown}
             >
               <Link to={item.path} className="nav-links">
                 <span>{item.name}</span>
@@ -141,12 +147,15 @@ export default function NavBar() {
       </div>
       {/* right side */}
       <div className="nav-rightside">
-        <LuSearch className="nav-icon nav-links" onMouseOver={searchDropdown} />
+        <LuSearch
+          className="nav-icon nav-links"
+          onMouseEnter={openSearchDropdown}
+        />
         {/* Search Dropdown */}
         {selectedSearchDropdown && (
-          <div className="search-box">
+          <div className="search-box" onMouseLeave={closeSearchDropdown}>
             <input placeholder="coin,function,..."></input>
-            <p onClick={searchDropdown}>cancel</p>
+            <p onClick={closeSearchDropdown}>cancel</p>
           </div>
         )}
         <Link to="/login" className="nav-links">
@@ -155,15 +164,18 @@ export default function NavBar() {
         <Link to="/signup" className="nav-links signup-nav-btn">
           Sign Up
         </Link>
+        {/* App Download Dropdown */}
         <HiOutlineArrowDownTray
           className="nav-icon nav-links"
-          onMouseOver={appDownloadDropdown}
+          onMouseEnter={openAppDownloadDropdown}
         />
-
-        {/* App Download Dropdown */}
         {selectedAppdownloadDropdown && (
-          <div className="app-download">
-            <img src="./images/download.png" className="app-qr-code"></img>
+          <div className="app-download" onMouseLeave={closeAppdownloadDropdown}>
+            <img
+              src="./images/download.png"
+              className="app-qr-code"
+              alt="app"
+            ></img>
             <span>Scan to Download App</span>
             <span>IOS & Android</span>
             <Link to="/#" className="app-download-dropdown-btn">
@@ -175,32 +187,45 @@ export default function NavBar() {
 
         {/* Mobile Menu Icon */}
         {isMenuOpen ? (
-          <GiHamburgerMenu className="menu-icon" onClick={toggleMenu} />
-        ) : (
           <IoCloseSharp className="menu-icon" onClick={toggleMenu} />
+        ) : (
+          <GiHamburgerMenu className="menu-icon" onClick={toggleMenu} />
         )}
 
         {/* Mobile Menu List */}
-        <ul className="mobile-nav-menu">
-          {menuItems.map((item) => (
-            <li
-              className="mobile-nav-items"
-              key={item.id}
-              onMouseEnter={() => pagesDropdownHandler(item)}
-              onMouseLeave={closePagesDropdownHandler}
-            >
-              <Link to={item.path} className="nav-links">
-                <span>{item.name}</span>
-                {item.submenu ? (
-                  <DropdownIcon
-                    className="nav-dropdown-icon"
-                    onClick={toggleMenu}
-                  />
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {isMenuOpen && (
+          <ul className="mobile-nav-menu">
+            {menuItems.map((item) => (
+              <li
+                className="mobile-nav-items"
+                key={item.id}
+                onMouseOver={() => openPagesDropdown(item)}
+                onMouseLeave={closePagesDropdown}
+              >
+                <Link to={item.path} className="mobile-nav-links">
+                  <span>{item.name}</span>
+                  {item.submenu ? (
+                    <DropdownIcon
+                      className="nav-dropdown-icon"
+                      onClick={toggleMenu}
+                    />
+                  ) : null}
+                </Link>
+                {/* mobile Items Dropdown */}
+                {seledtedPageDropdown?.id === item.id &&
+                  item.sublinks.map((link) => (
+                    <div className="mobile-dropdown-list">
+                      <li className="mobile-dropdown-item">
+                        <Link className="mobile-dropdown-links" to={link.path}>
+                          {link.name}
+                        </Link>
+                      </li>
+                    </div>
+                  ))}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
