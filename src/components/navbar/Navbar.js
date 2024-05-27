@@ -10,7 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [seledtedPageDropdown, setSeledtedPageDropdown] = useState(null);
   const [selectedSearchDropdown, setSelectedSearchDropdown] = useState(false);
   const [selectedAppdownloadDropdown, setSelectedAppdownloadDropdown] =
@@ -131,16 +131,19 @@ export default function Navbar() {
                 ) : null}
               </Link>
               {/* Desktop Pages Dropdown */}
-              {seledtedPageDropdown?.id === item.id &&
-                item.sublinks.map((link) => (
-                  <div className="nav-dropdown-list">
-                    <li className="nav-dropdown-item">
-                      <Link className="nav-dropdown-link" to={link.path}>
-                        {link.name}
-                      </Link>
-                    </li>
-                  </div>
-                ))}
+              {seledtedPageDropdown?.id === item.id && (
+                <div className="nav-dropdown">
+                  {item.sublinks.map((link) => (
+                    <div className="nav-dropdown-list">
+                      <li className="nav-dropdown-item">
+                        <Link className="nav-dropdown-link" to={link.path}>
+                          {link.name}
+                        </Link>
+                      </li>
+                    </div>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>

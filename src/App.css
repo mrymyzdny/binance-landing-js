@@ -1,3 +1,14 @@
+:root {
+  --font-color: #fff;
+  --color-primary: #f0b90b;
+  --color-bg: #181a20;
+  --secondary-bg-gray: #202630;
+  --light-gray: #c0c0c0;
+  font-family: "IBM";
+  background-color: var(--color-bg);
+
+}
+/* 
 .dark,
 :root {
   --font-color: #fff;
@@ -18,7 +29,7 @@
   --light-gray: #c0c0c0;
   font-family: "IBM";
   background-color: var(--color-bg);
-}
+} */
 
 /* * {
   transition: all 0.2s ease-in-out;

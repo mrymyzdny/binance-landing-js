@@ -1,53 +1,53 @@
 .footer {
-    margin: 0 auto 0 auto;
-    padding-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    color: var(--font-color);
+  margin: 0 auto 0 auto;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--font-color);
 }
 .footer-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 217.2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 217.2px;
 }
 .community-list {
-    display: flex;
-    flex-direction: row;
-    width: 217.2px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  width: 217.2px;
+  flex-wrap: wrap;
 }
 .footer-list-title {
-    margin: 40px 0 20px;
-    font-weight: bold;
+  margin: 40px 0 20px;
+  font-weight: bold;
 }
 .footer-list-item {
-    color: var(--font-color);
-    text-decoration: none;
-    display: flex;
-    margin-top: 10px;
-    font-size: 14px;
+  color: var(--font-color);
+  text-decoration: none;
+  display: flex;
+  margin-top: 10px;
+  font-size: 14px;
 }
 .community-item {
-    margin: 20px 30px 0 0;
+  margin: 20px 30px 0 0;
 }
 .footer-list-item:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 .app-options-section {
-    font-size: 14px;
-    margin-top: 60px;
+  font-size: 14px;
+  margin-top: 60px;
 }
-.app-options-theme ,
+.app-options-theme,
 .app-options {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-.app-options:hover ,.app-options-theme:hover {
-    color: var(--color-primary);
+.app-options:hover,
+.app-options-theme:hover {
+  color: var(--color-primary);
 }
 .app-options-theme {
-
 }

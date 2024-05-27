@@ -15,8 +15,12 @@ import {
   emailValidator,
 } from "../../validators/rules";
 import { useForm } from "../../hooks/useForm";
+import { useMainContext } from "../../context/MainContext";
+
 
 export default function Signup() {
+  // const { formData } = useMainContext();
+
   let navigate = useNavigate();
 
   const submitHandler = (e) => {
@@ -54,6 +58,12 @@ export default function Signup() {
     },
     false
   );
+
+  // useEffect(() => {
+  //   if(formData){
+  //     console.lo()
+  //   }
+  // } , [formData])
 
   return (
     <div className="form-section">

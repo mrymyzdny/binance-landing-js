@@ -2,7 +2,6 @@ import React, { useEffect, useReducer } from "react";
 import validator from "../../validators/validator";
 
 const inputReducer = (state, action) => {
-  console.log(state, action);
   switch (action.type) {
     case "CHANGE": {
       return {

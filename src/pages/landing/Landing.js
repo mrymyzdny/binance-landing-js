@@ -1,4 +1,4 @@
-import {React} from "react";
+import { React } from "react";
 import "./Landing.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
@@ -9,15 +9,16 @@ import Footer from "../../components/footer/Footer";
 import { useTheme } from "../../context/ThemeContext";
 
 export default function Landing() {
-  const isDarkTheme = useTheme()
+  const { theme } = useTheme();
+
   return (
-      <div className={isDarkTheme ? "dark" : "ligth"}>
-        <Navbar />
-        <Header />
-        <Application />
-        <Faq />
-        <Rewards />
-        <Footer />
-      </div>
+    <div className={theme}>
+      <Navbar />
+      <Header />
+      <Application />
+      <Faq />
+      <Rewards />
+      <Footer />
+    </div>
   );
 }

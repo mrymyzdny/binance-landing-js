@@ -15,11 +15,11 @@ import { MdLanguage } from "react-icons/md";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
-import { useTheme , useThemeUpdate} from '../../context/ThemeContext'
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Footer() {
-  const darkTheme = useTheme()
-  const toggleTheme = useThemeUpdate()
+  const { theme, toggleTheme } = useTheme();
+  // const darkTheme = theme === "dark"
 
   const [footerLists, setFooterList] = useState([
     {
@@ -157,7 +157,7 @@ export default function Footer() {
           </div>
           <div className="app-options-theme" onClick={toggleTheme}>
             <span>Theme</span>
-            {darkTheme ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
+            {theme === "dark" ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
           </div>
         </div>
       </div>

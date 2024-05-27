@@ -4,7 +4,6 @@
   right: 0;
   left: 0;
   padding: 24px;
-  margin-bottom: 50px;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
@@ -27,9 +26,12 @@
 }
 .nav-menu {
   display: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .nav-items {
-  align-items: center;
+  position: relative;
 }
 .nav-links {
   color: var(--font-color);
@@ -38,16 +40,23 @@
   margin-left: 20px;
   cursor: pointer;
   font-size: 15px;
-  position: relative;
+}
+/* Pages Dropdown */
+.nav-dropdown {
+  gap: 4px;
+  position: absolute;
+  width: 150px;
 }
 .nav-dropdown-list {
   background-color: var(--secondary-bg-gray);
-  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 100;
   display: flex;
 }
 .nav-dropdown-item {
-  padding: 10px;
+  padding: 15px;
+  font-size: 14px;
 }
 .header-menu-item_dropdown-icon {
   width: 20px;
@@ -56,7 +65,9 @@
 .nav-dropdown-link {
   color: var(--font-color);
   text-decoration: none;
-  margin: 20px;
+}
+.nav-dropdown-link:hover {
+  color: var(--color-primary);
 }
 .nav-icon {
   font-size: 24px;

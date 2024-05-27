@@ -5,8 +5,10 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { FaQrcode } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useMainContext } from "../../context/MainContext";
 
 export default function Header() {
+  // const { formData, setFormData } = useMainContext();
   return (
     <div>
       <div className="header container">
@@ -17,7 +19,8 @@ export default function Header() {
             <input
               placeholder="Email/Phone number"
               className="signup-input"
-            ></input>
+              // onChange={(e) => setFormData(e.target.value)}
+            />
             <Link to="/signup" className="signup-btn">
               Sign Up
             </Link>
